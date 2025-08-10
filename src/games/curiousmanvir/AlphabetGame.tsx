@@ -49,8 +49,7 @@ export default function AlphabetGame() {
     setSelected(null);
     setIsCorrect(null);
     setMood("idle");
-    // Prompt: say the target letter name
-    speakLetter(targetUpper);
+    // Removed voice prompt on load; it will only speak on click
   }, [currentIndex]);
 
   const handleSelect = useCallback(

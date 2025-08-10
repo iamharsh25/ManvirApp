@@ -7,17 +7,13 @@ function refreshVoices() {
   availableVoices = window.speechSynthesis.getVoices();
   if (!availableVoices || availableVoices.length === 0) return;
 
-  // Prefer kid-friendly, clear English voices when present
   const preferredNames = [
-    // iOS Safari
     "Samantha",
     "Ava",
     "Alex",
-    // Google Chrome
     "Google US English",
     "Google UK English Female",
     "Google UK English Male",
-    // Windows
     "Microsoft Zira Desktop",
     "Microsoft David Desktop",
   ];
@@ -66,6 +62,6 @@ export function speakText(
 }
 
 export function speakLetter(letter: string) {
-  // Uppercase yields clearer pronunciation of the letter name
-  speakText(letter.toUpperCase());
+  // Speak exactly the provided letter
+  speakText(letter);
 }
