@@ -1,11 +1,19 @@
 import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { AlphabetGame } from "./games/curiousmanvir";
+import {
+  PhonicsPlayground,
+  FlashCards,
+  LeadersFlashCards,
+} from "./games/phonics";
 
 export default function MiniPlayground() {
   const tabs = useMemo(
     () => [
       { key: "alphabets", label: "Alphabets", element: <AlphabetGame /> },
+      { key: "phonics", label: "Phonics", element: <PhonicsPlayground /> },
+      { key: "flash", label: "Flash Cards", element: <FlashCards /> },
+      { key: "leaders", label: "Leaders", element: <LeadersFlashCards /> },
       { key: "more", label: "More", element: <ComingSoon /> },
     ],
     []
@@ -18,14 +26,14 @@ export default function MiniPlayground() {
     <div className="min-h-[100dvh] flex flex-col bg-white text-gray-900">
       <div className="sticky top-0 z-10 bg-white/70 backdrop-blur border-b">
         <div className="mx-auto w-full max-w-2xl px-4">
-          <div className="flex gap-2">
+          <div className="flex gap-2 overflow-x-auto no-scrollbar py-1">
             {tabs.map((t) => {
               const isActive = t.key === activeKey;
               return (
                 <button
                   key={t.key}
                   onClick={() => setActiveKey(t.key)}
-                  className="relative px-4 py-3 text-sm font-medium rounded-md hover:bg-gray-100"
+                  className="relative px-4 py-3 text-sm font-medium rounded-md hover:bg-gray-100 whitespace-nowrap"
                 >
                   <span
                     className={isActive ? "text-gray-900" : "text-gray-500"}
@@ -55,7 +63,9 @@ function ComingSoon() {
     <div className="min-h-[100dvh] w-full flex items-center justify-center">
       <div className="text-center">
         <div className="text-2xl font-semibold mb-2">More mini games soon</div>
-        <p className="text-gray-500">Pick "Alphabets" to start playing now.</p>
+        <p className="text-gray-500">
+          Try Alphabets, Phonics, Flash Cards, or Leaders.
+        </p>
       </div>
     </div>
   );
