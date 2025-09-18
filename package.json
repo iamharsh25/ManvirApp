@@ -9,12 +9,18 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "setup-db": "node setup-database.js",
+    "setup-url": "node setup-database-url.js"
   },
   "homepage": "https://iamharsh25.github.io/ManvirApp",
   "dependencies": {
     "@iconify/react": "^6.0.0",
+    "@neondatabase/serverless": "^1.0.1",
+    "@types/pg": "^8.15.5",
     "framer-motion": "^11.18.2",
+    "lucide-react": "^0.544.0",
+    "pg": "^8.16.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
